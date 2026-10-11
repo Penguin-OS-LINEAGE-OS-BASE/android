@@ -1,36 +1,96 @@
-LineageOS
-===========
+Penguin OS (LineageOS Base)
+===========================
+
+A custom ROM based on LineageOS 24.0 (Android 17/QPR1), maintained by the Penguin-OS-LINEAGE-OS-BASE organization.
 
 Getting started
 ---------------
 
-To get started with Android/LineageOS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
+To get started with Penguin OS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
 
-To initialize your local repository using the LineageOS trees, use a command like this:
+To initialize your local repository using the Penguin OS trees, use a command like this:
 ```
-repo init -u https://github.com/LineageOS/android.git -b lineage-24.0 --git-lfs
+repo init -u https://github.com/Penguin-OS-LINEAGE-OS-BASE/android.git -b lineage-24.0 --git-lfs
 ```
 Then to sync up:
 ```
 repo sync
 ```
-Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device.
+
+Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device (adapt for Penguin OS).
+
+
+Forked Repositories (Bare Minimum to Boot)
+------------------------------------------
+
+The following LineageOS repositories have been forked to the Penguin-OS-LINEAGE-OS-BASE organization and are used by this manifest:
+
+### Core Platform
+- [android_build](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_build) → `build/make`
+- [android_build_soong](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_build_soong) → `build/soong`
+- [android_art](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_art) → `art`
+- [android_bionic](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_bionic) → `bionic`
+- [android_libcore](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_libcore) → `libcore`
+
+### Bootable
+- [android_bootable_recovery](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_bootable_recovery) → `bootable/recovery`
+
+### Development
+- [android_development](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_development) → `development`
+
+### Frameworks
+- [android_frameworks_av](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_frameworks_av) → `frameworks/av`
+- [android_frameworks_base](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_frameworks_base) → `frameworks/base`
+- [android_frameworks_libs_systemui](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_frameworks_libs_systemui) → `frameworks/libs/systemui`
+- [android_frameworks_native](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_frameworks_native) → `frameworks/native`
+- [android_frameworks_opt_telephony](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_frameworks_opt_telephony) → `frameworks/opt/telephony`
+
+### Hardware
+- [android_hardware_interfaces](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_hardware_interfaces) → `hardware/interfaces`
+- [android_hardware_libhardware](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_hardware_libhardware) → `hardware/libhardware`
+- [android_hardware_libhardware_legacy](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_hardware_libhardware_legacy) → `hardware/libhardware_legacy`
+- [android_hardware_ril](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_hardware_ril) → `hardware/ril`
+
+### System
+- [android_system_core](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_system_core) → `system/core`
+- [android_system_sepolicy](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_system_sepolicy) → `system/sepolicy`
+- [android_system_bt](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_system_bt) → `system/bt`
+- [android_system_media](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_system_media) → `system/media`
+- [android_system_netd](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_system_netd) → `system/netd`
+- [android_system_vold](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_system_vold) → `system/vold`
+
+### Vendor
+- [android_vendor_lineage](https://github.com/Penguin-OS-LINEAGE-OS-BASE/android_vendor_lineage) → `vendor/lineage` *(Penguin OS branding, overlays, config)*
+
+### Apps (from Project-PenguinOS)
+- [penguin_packages_apps_Dialer](https://github.com/Penguin-OS-LINEAGE-OS-BASE/penguin_packages_apps_Dialer) → `packages/apps/Dialer` *(from Project-PenguinOS)*
+
+### GMS (Google Mobile Services)
+- **Codeberg:** [PenguinOS/android_vendor_gms](https://codeberg.org/PenguinOS/android_vendor_gms) → `vendor/gms` *(branch: celerity, from Project-PenguinOS/Neoteric-OS)*
+
+
+Building with GMS
+-----------------
+
+To include Google Mobile Services in your build, set:
+```bash
+export WITH_GMS=true
+```
+
+This will automatically include the Project-PenguinOS GMS package from `vendor/gms`.
 
 
 Submitting patches
 ------------------
-Patches are always welcome! Please submit your patches via LineageOS Gerrit!
 
-Simply follow our guide on [how to submit patches](https://wiki.lineageos.org/submitting-patch-howto.html).
+Patches are welcome! Please submit your patches via GitHub Pull Requests to the respective repositories in the Penguin-OS-LINEAGE-OS-BASE organization.
 
-To view the status of your and others' patches, visit [LineageOS Gerrit Code Review](https://review.lineageos.org/).
+For device-specific patches, please submit to the appropriate device repository.
 
 
-Buildbot
---------
+Organization
+------------
 
-All supported devices are built weekly and periodically as changes are committed to ensure the source trees remain buildable.
+**GitHub:** https://github.com/Penguin-OS-LINEAGE-OS-BASE
 
-You can view the current build statuses at [LineageOS Buildkite](https://buildkite.com/lineageos).
-
-Builds produced weekly by the buildbot can be downloaded from [LineageOS downloads](https://download.lineageos.org/).
+This manifest is based on LineageOS 24.0 and incorporates components from Project-PenguinOS.
